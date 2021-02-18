@@ -1,8 +1,11 @@
 from naive_bayes import NaiveBayesClassifier
 import random
 
-def test_string_column_to_float():
+
+def test_map_class_names_to_ints():
+
     classifier = NaiveBayesClassifier()
+
     dataset = [['3.393533211', '2.331273381', '0'],
                ['3.110073483', '1.781539638', '0'],
                ['1.343808831', '3.368360954', '0'],
@@ -14,12 +17,15 @@ def test_string_column_to_float():
                ['7.792783481', '3.424088941', '1'],
                ['7.939820817', '0.791637231', '1']]
 
-    for i in range(0, len(dataset[0])-1):
-        classifier.string_column_to_float(dataset, i)
-
+    classifier.map_class_names_to_ints(dataset, len(dataset[0])-1, True)
 
     for i in range(0, len(dataset)):
         tested_row = random.randint(0, len(dataset)-1)
-        tested_column = random.randint(0, len(dataset[0]) - 2)
-        assert isinstance(dataset[tested_row][tested_column], float)
+        assert isinstance(dataset[tested_row][len(dataset[0]) - 1], int)
+
+    classifier.map_class_names_to_ints(dataset, len(dataset[0])-1, False)
+
+    for i in range(0, len(dataset)):
+        tested_row = random.randint(0, len(dataset)-1)
+        assert isinstance(dataset[tested_row][len(dataset[0]) - 1], int)
 

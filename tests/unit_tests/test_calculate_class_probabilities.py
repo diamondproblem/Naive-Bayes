@@ -2,6 +2,7 @@ from naive_bayes import NaiveBayesClassifier
 
 
 def test_calculate_class_probabilities():
+
     classifier = NaiveBayesClassifier()
 
     dataset = [[3.393533211, 2.331273381, 0],

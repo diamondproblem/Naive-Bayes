@@ -5,7 +5,8 @@ def test_load_dataset_from_csv():
 
     classifier = NaiveBayesClassifier()
 
-    csv_filename = 'iris.csv'
+    csv_filename = 'datasets/iris.csv'
+
     data_0 = ['5.1', '3.5', '1.4', '0.2', 'Iris-setosa']
     data_2 = ['4.7', '3.2', '1.3', '0.2', 'Iris-setosa']
     data_39 = ['5.1','3.4','1.5','0.2','Iris-setosa']
@@ -30,3 +31,8 @@ def test_load_dataset_from_csv():
     assert readed_dataset[125] == data_125
     assert readed_dataset[143] == data_143
 
+    csv_filename_2 = 'tests/unit_tests/resources/load_test.csv'
+
+    readed_dataset_2 = classifier.load_dataset_from_csv(csv_filename_2)
+
+    assert len(readed_dataset_2) == 3

@@ -1,9 +1,10 @@
 from naive_bayes import NaiveBayesClassifier
-import pytest_mock as mocker
 
 
-def test_divide_data_params_by_class():
+def test_calculate_class_parameters():
+
     classifier = NaiveBayesClassifier()
+    
     dataset = [[3.393533211, 2.331273381, 0],
                [3.110073483, 1.781539638, 0],
                [1.343808831, 3.368360954, 0],
@@ -20,4 +21,4 @@ def test_divide_data_params_by_class():
                        1: [(7.6146523718, 1.2344321550313704, 5),
                            (2.9914679790000003, 1.4541931384601618, 5)]}
 
-    assert classifier.divide_data_params_by_class(dataset) == results_dataset
+    assert classifier.calculate_class_parameters(dataset) == results_dataset
